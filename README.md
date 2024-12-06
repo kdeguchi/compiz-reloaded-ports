@@ -10,4 +10,4 @@ You can download these files and overwrite ports tree, or use ports overlays met
 
 Add in your `/etc/make.conf` as follows:
 
-`OVERLAYS+=/your/download/directory/mozc-ports`
+`OVERLAYS+=/your/download/directory/compiz-related-ports`
