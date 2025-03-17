@@ -12,7 +12,7 @@ Add in your `/etc/make.conf` as follows:
 
 `OVERLAYS+=/your/download/directory/compiz-related-ports`
 
-If you use poudriere, you need to add to /etc/make.conf
+If you use poudriere, you may need to add to `/etc/make.conf` as follows:
 
     .ifndef POUDRIERE_BUILD_TYPE
     OVERLAYS+=/your/download/directory/compiz-related-ports
