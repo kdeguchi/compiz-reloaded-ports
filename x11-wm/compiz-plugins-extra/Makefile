@@ -30,7 +30,7 @@ GL_ACCOUNT=	compiz
 GL_COMMIT=	3441d027884b37194ca821b8e689d5d569058960
 
 USE_GL=		glu
-USE_GNOME=	gdkpixbuf2 intltool libxml2 pango
+USE_GNOME=	gdkpixbuf intltool libxml2 pango
 USE_LDCONFIG=	yes
 USE_XORG=	ice sm x11 xcomposite xdamage xext xfixes xi xinerama xorgproto xrandr xrender
 
