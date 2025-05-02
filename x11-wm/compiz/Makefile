@@ -1,6 +1,6 @@
 PORTNAME=	compiz
 PORTVERSION=	0.8.18
-PORTREVISION=	7
+PORTREVISION=	8
 CATEGORIES=	x11-wm
 
 MAINTAINER=	kdeguchi@sz.tokoha-u.ac.jp
@@ -13,7 +13,8 @@ LICENSE_FILE_GPLv2+ =	${WRKSRC}/COPYING.GPL
 LICENSE_FILE_LGPL21+ =	${WRKSRC}/COPYING.LGPL
 LICENSE_FILE_MIT=	${WRKSRC}/COPYING.MIT
 
-LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
+LIB_DEPENDS=	libatk-1.0.so:accessibility/at-spi2-core \
+		libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2 \
 		libpng.so:graphics/png \
 		libstartup-notification-1.so:x11/startup-notification
