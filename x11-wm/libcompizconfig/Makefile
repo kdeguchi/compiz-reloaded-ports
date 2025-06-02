@@ -1,6 +1,6 @@
 PORTNAME=	libcompizconfig
 PORTVERSION=	0.8.18
-PORTREVISION=	7
+PORTREVISION=	8
 CATEGORIES=	x11-wm
 
 MAINTAINER=	kdeguchi@sz.tokoha-u.ac.jp
