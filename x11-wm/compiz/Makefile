@@ -85,9 +85,9 @@ GTK3_USE=		GNOME=glib20,gtk30,libwnck3
 GTK3_CONFIGURE_ON=	--with-gtk=3.0
 GTK3_IMPLIES=		DBUS
 
-.if !exists(/usr/include/sys/inotify.h)
+#.if !exists(/usr/include/sys/inotify.h)
 INOTIFY_LIB_DEPENDS=		libinotify.so:devel/libinotify
-.endif
+#.endif
 INOTIFY_CONFIGURE_ENABLE=	inotify
 
 MATE_CONFIGURE_ENABLE=	mate
