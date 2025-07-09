@@ -1,6 +1,6 @@
 PORTNAME=	compiz
 PORTVERSION=	0.8.18
-PORTREVISION=	8
+PORTREVISION=	10
 CATEGORIES=	x11-wm
 
 MAINTAINER=	kdeguchi@sz.tokoha-u.ac.jp
@@ -45,7 +45,8 @@ SHEBANG_FILES=	plugins/compiz-decorator
 bash_CMD=	/bin/sh
 
 GNU_CONFIGURE=	yes
-CONFIGURE_ARGS=	--enable-menu-entries --disable-dependency-tracking
+CONFIGURE_ARGS=	--enable-menu-entries \
+		--disable-dependency-tracking
 
 INSTALL_TARGET=	install-strip
 
@@ -58,40 +59,43 @@ DESKTOP_ENTRIES=	"Compiz Manager" \
 
 SUB_FILES=		compiz-manager
 
-OPTIONS_DEFINE=	DBUS FUSE INOTIFY MATE NLS SVG
+OPTIONS_DEFINE=		DBUS FUSE INOTIFY MATE NLS SVG
 OPTIONS_DEFAULT=	DBUS GTK3 NLS SVG
-OPTIONS_RADIO=	GTK
+OPTIONS_RADIO=		GTK
 OPTIONS_RADIO_GTK=	GTK2 GTK3
-OPTIONS_SUB=	yes
+OPTIONS_SUB=		yes
 
-INOTIFY_DESC=	inotify plugin support
+INOTIFY_DESC=		inotify plugin support
 
-DBUS_BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/dbus-1.pc:devel/dbus \
-		${LOCALBASE}/libdata/pkgconfig/dbus-glib-1.pc:devel/dbus-glib
-DBUS_RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/dbus-1.pc:devel/dbus \
-		${LOCALBASE}/libdata/pkgconfig/dbus-glib-1.pc:devel/dbus-glib
-DBUS_CONFIGURE_ENABLE=	dbus dbus-glib
+DBUS_BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/dbus-1.pc:devel/dbus
+DBUS_RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/dbus-1.pc:devel/dbus
+DBUS_CONFIGURE_ENABLE=	dbus
 
 FUSE_USES=		fuse
 FUSE_CONFIGURE_ENABLE=	fuse
 
-GTK2_IMPLIES=	DBUS
-GTK2_USE=	GNOME=glib20,gtk20,libwnck
+GTK2_USE=		GNOME=glib20,gtk20,libwnck
 GTK2_CONFIGURE_ON=	--with-gtk=2.0
+GTK2_CONFIGURE_ENABLE=	dbus-glib
+GTK2_IMPLIES=		DBUS
+GTK2_BUILD_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/dbus-glib-1.pc:devel/dbus-glib
+GTK2_RUN_DEPENDS=	${LOCALBASE}/libdata/pkgconfig/dbus-glib-1.pc:devel/dbus-glib
 
-GTK3_IMPLIES=	DBUS
-GTK3_USE=	GNOME=glib20,gtk30,libwnck3
+GTK3_USE=		GNOME=glib20,gtk30,libwnck3
 GTK3_CONFIGURE_ON=	--with-gtk=3.0
+GTK3_IMPLIES=		DBUS
 
-INOTIFY_LIB_DEPENDS=	libinotify.so:devel/libinotify
+.if !exists(/usr/include/sys/inotify.h)
+INOTIFY_LIB_DEPENDS=		libinotify.so:devel/libinotify
+.endif
 INOTIFY_CONFIGURE_ENABLE=	inotify
 
 MATE_CONFIGURE_ENABLE=	mate
 
-NLS_USES=	gettext
+NLS_USES=		gettext
 NLS_CONFIGURE_ENABLE=	nls
 
-SVG_USE=	GNOME=librsvg2
+SVG_USE=		GNOME=librsvg2
 SVG_CONFIGURE_ENABLE=	librsvg
 
 post-patch:

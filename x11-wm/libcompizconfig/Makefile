@@ -1,6 +1,6 @@
 PORTNAME=	libcompizconfig
 PORTVERSION=	0.8.18
-PORTREVISION=	8
+PORTREVISION=	9
 CATEGORIES=	x11-wm
 
 MAINTAINER=	kdeguchi@sz.tokoha-u.ac.jp
@@ -32,8 +32,10 @@ OPTIONS_DEFINE=	INOTIFY
 OPTIONS_DEFAULT=	INOTIFY
 
 INOTIFY_DESC?=	Enable inotify support
+.if !exists(/usr/include/sys/inotify.h)
 INOTIFY_LIB_DEPENDS=	libinotify.so:devel/libinotify
 INOTIFY_LDFLAGS=	-linotify
+.endif
 
 post-patch:
 	@echo "OSVERSION=${OSVERSION}"
