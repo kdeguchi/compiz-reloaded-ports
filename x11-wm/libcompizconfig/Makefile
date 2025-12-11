@@ -32,10 +32,10 @@ OPTIONS_DEFINE=	INOTIFY
 OPTIONS_DEFAULT=	INOTIFY
 
 INOTIFY_DESC?=	Enable inotify support
-#.if !exists(/usr/include/sys/inotify.h)
+.if !exists(/usr/include/sys/inotify.h)
 INOTIFY_LIB_DEPENDS=	libinotify.so:devel/libinotify
 INOTIFY_LDFLAGS=	-linotify
-#.endif
+.endif
 
 post-patch:
 	@echo "OSVERSION=${OSVERSION}"
