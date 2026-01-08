@@ -1,6 +1,6 @@
 PORTNAME=	compiz
 PORTVERSION=	0.8.18
-PORTREVISION=	10
+PORTREVISION=	11
 CATEGORIES=	x11-wm
 
 MAINTAINER=	kdeguchi@sz.tokoha-u.ac.jp
@@ -30,7 +30,7 @@ USES=		autoreconf gl gmake gnome iconv libtool localbase pathfix \
 USE_GITLAB=	yes
 GL_ACCOUNT=	compiz
 GL_PROJECT=	compiz-core
-GL_COMMIT=	155c201ec62c289c5a44b6dd23eddec3e3c20e26
+GL_COMMIT=	aeab754a34fa45820385a059e78978feaf81b6de
 
 USE_GL=		gl glu
 
