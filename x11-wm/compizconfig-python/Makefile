@@ -1,5 +1,6 @@
 PORTNAME=	compizconfig-python
 PORTVERSION=	0.8.18
+PORTREVISION=	1
 CATEGORIES=	x11-wm
 
 MAINTAINER=	freebsd-ports@dan.me.uk
@@ -25,7 +26,7 @@ GL_ACCOUNT=	compiz
 GL_COMMIT=	17f5f7548b30c88850c2564d9837c53e0eb035ff
 
 USE_GNOME=	glib20 libxml2
-USE_PYTHON=	flavors cython3
+USE_PYTHON=	flavors cython
 USE_XORG=	ice sm x11 xcomposite xdamage xext xfixes xinerama xrandr xcursor xi
 
 HAS_CONFIGURE=	yes
