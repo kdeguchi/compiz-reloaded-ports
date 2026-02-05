@@ -19,7 +19,7 @@ GL_ACCOUNT=	compiz
 GL_COMMIT=	0cc706c1c741a8234da3bd1a2c0460cae2804820
 
 USE_GNOME=	intltool pygobject3
-USE_PYTHON=	autoplist distutils flavors py3kplist
+USE_PYTHON=	autoplist distutils py3kplist
 PYDISTUTILS_INSTALLNOSINGLE=	yes
 
 PLIST_SUB+=	PORTVERSION=${PORTVERSION}
